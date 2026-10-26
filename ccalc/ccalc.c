@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
+#include "weightconvert\wconvert.h"
+#include "tempconvert\tempconvert.h"
+#include "compound\compound.h"
+#include "circle\circle.h"
 
 int main(void) {
     setlocale(LC_ALL, "");
@@ -30,7 +34,7 @@ int main(void) {
                 double num2;
                 double answer;
                 
-                wprintf("Choose your operator: (+) (-) (/) (x) (^) (\u221A - type 's')");
+                printf("Choose your operator: (+) (-) (/) (x) (^) (\u221A - type 's')");
                 scanf(" %c", &operator);
 
                 if (operator == 's') {
@@ -38,7 +42,7 @@ int main(void) {
                     scanf("%lf", &num1);
 
                     answer = sqrt(num1);
-                    printf("Answer: %lf");
+                    printf("Answer: %lf\n", answer);
                 } else
                 {
                     /* code */
@@ -50,7 +54,7 @@ int main(void) {
                         scanf("%lf", &num2);
 
                         answer = num1 + num2;
-                        printf("Answer: ");
+                        printf("Answer: %lf\n", answer);
                     }
                     if (operator == '-') {
                         printf("Number 1: ");
@@ -60,7 +64,7 @@ int main(void) {
                         scanf("%lf", &num2);
 
                         answer = num1 - num2;
-                        printf("Answer: ");
+                        printf("Answer: %lf\n", answer);
                     }
                     if (operator == '/') {
                         printf("Number 1: ");
@@ -70,7 +74,7 @@ int main(void) {
                         scanf("%lf", &num2);
 
                         answer = num1 / num2;
-                        printf("Answer: ");
+                        printf("Answer: %lf\n", answer);
                     }
                     if (operator == 'x') {
                         printf("Number 1: ");
@@ -80,7 +84,7 @@ int main(void) {
                         scanf("%lf", &num2);
 
                         answer = num1 * num2;
-                        printf("Answer: ");
+                        printf("Answer: %lf\n", answer);
                     }
                     if (operator == '^') {
                         printf("Number 1: ");
@@ -90,13 +94,25 @@ int main(void) {
                         scanf("%lf", &num2);
 
                         answer = pow(num1, num2);
-                        printf("Answer: ");
+                        printf("Answer: %lf\n", answer);
                     }
                 }
             } 
-            else if (userChoice == "b")
+            else if (userChoice == 'b')
             {
-                /* code */
+                wconvert();
+            }
+            else if (userChoice == 'c')
+            {
+                tempconvert();
+            }
+            else if (userChoice == 'd')
+            {
+                compound();
+            }
+            else if (userChoice == 'e')
+            {
+                circle();
             }
             else {
                 printf("Type a, b, c, d, e or x to select an option!");

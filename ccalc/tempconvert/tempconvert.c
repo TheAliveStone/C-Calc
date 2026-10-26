@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include "tempconvert.h"
 
-int main(void) {
+void tempconvert(void) {
     char userChoice;
     int temp;
     
@@ -70,5 +71,4 @@ int main(void) {
             }
         }
     } while (userChoice != 'x');
-    return 0;
 }

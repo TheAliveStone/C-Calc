@@ -1,6 +1,7 @@
+#include "wconvert.h"
 #include <stdio.h>
 
-int main(void) {
+void wconvert(void) {
     char userChoice;
     float weight;
 
@@ -40,5 +41,4 @@ int main(void) {
     } while (userChoice != 'x');
     
 
-    return 0;
 }

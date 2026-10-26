@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include "compound.h"
 
-int main(void) {
+void compound(void) {
     
     double startingAmount;
     double interestRate;
@@ -25,5 +26,4 @@ int main(void) {
     double finalAmount = startingAmount * pow(1.0 + (interestRate / 100) / timesCompounded, timesCompounded * years);
     printf("After %d years, you will have %.2lf pounds.", years, finalAmount);
 
-    return 0;
 }
