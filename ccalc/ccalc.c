@@ -1,19 +1,17 @@
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
-#include "weightconvert\wconvert.h"
-#include "tempconvert\tempconvert.h"
-#include "compound\compound.h"
-#include "circle\circle.h"
+#include "weightconvert/wconvert.h"
+#include "tempconvert/tempconvert.h"
+#include "compound/compound.h"
+#include "circle/circle.h"
 
 int main(void) {
     setlocale(LC_ALL, "");
     char userChoice;
-    float answer;
-
     do
     {
-        printf("Welcome to CCalc!.\n");
+        printf("Welcome to CCalc!\n");
 
         printf("a. Calculator\n");
         printf("b. Weight Converter\n");
@@ -34,10 +32,10 @@ int main(void) {
                 double num2;
                 double answer;
                 
-                printf("Choose your operator: (+) (-) (/) (x) (^) (\u221A - type 's')");
+                printf("Choose your operator: (+) (-) (/) (x) (^) (r - sqrt))");
                 scanf(" %c", &operator);
 
-                if (operator == 's') {
+                if (operator == 'r') {
                     printf("Enter the number to be square rooted? ");
                     scanf("%lf", &num1);
 
@@ -73,8 +71,12 @@ int main(void) {
                         printf("Number 2: ");
                         scanf("%lf", &num2);
 
-                        answer = num1 / num2;
-                        printf("Answer: %lf\n", answer);
+                        if (num2 == 0) {
+                            printf("Error: Division by zero is not allowed.\n");
+                        } else {
+                            answer = num1 / num2;
+                            printf("Answer: %lf\n", answer);
+                        }
                     }
                     if (operator == 'x') {
                         printf("Number 1: ");
@@ -114,7 +116,8 @@ int main(void) {
             {
                 circle();
             }
-            else {
+            else if (userChoice != '\n' && userChoice != ' ')
+            {
                 printf("Type a, b, c, d, e or x to select an option!");
             }
         }
